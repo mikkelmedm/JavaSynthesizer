@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synthv2.Synth">
+   <top>
+      <Accordion BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane animated="false" text="Waveform">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="598.0">
+                     <children>
+                        <RadioButton fx:id="sineBtn1" layoutX="126.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Sine">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="osc1toggle" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="squBtn1" layoutX="207.0" layoutY="14.0" mnemonicParsing="false" text="Square" toggleGroup="$osc1toggle" />
+                        <RadioButton fx:id="sawBtn1" layoutX="305.0" layoutY="14.0" mnemonicParsing="false" text="Saw" toggleGroup="$osc1toggle" />
+                        <RadioButton fx:id="triBtn1" layoutX="391.0" layoutY="14.0" mnemonicParsing="false" text="Triangle" toggleGroup="$osc1toggle" />
+                        <RadioButton fx:id="sineBtn2" layoutX="126.0" layoutY="48.0" mnemonicParsing="false" text="Sine">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="osc2toggle" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="squBtn2" layoutX="207.0" layoutY="48.0" mnemonicParsing="false" selected="true" text="Square" toggleGroup="$osc2toggle" />
+                        <RadioButton fx:id="sawBtn2" layoutX="305.0" layoutY="48.0" mnemonicParsing="false" text="Saw" toggleGroup="$osc2toggle" />
+                        <RadioButton fx:id="triBtn2" layoutX="391.0" layoutY="48.0" mnemonicParsing="false" text="Triangle" toggleGroup="$osc2toggle" />
+                        <ToggleButton fx:id="osc1Btn" layoutX="62.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" selected="true" text="Osc 1" />
+                        <ToggleButton fx:id="osc2Btn" layoutX="61.0" layoutY="44.0" mnemonicParsing="false" selected="true" text="Osc 2" />
+                        <Text fx:id="aktiverOsc" layoutX="190.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aktiver mindst én oscillator!" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Filter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Slider fx:id="filterSlide1" layoutX="108.0" layoutY="29.0" max="4000.0" min="1.0" value="2000.0" />
+                        <Slider fx:id="filterResoSlide1" layoutX="282.0" layoutY="29.0" max="1.0" value="0.5" />
+                        <Slider fx:id="filterDepthSlide1" layoutX="458.0" layoutY="29.0" max="1.0" value="0.5" />
+                        <Label layoutX="161.0" layoutY="14.0" text="Cutoff" />
+                        <Label layoutX="318.0" layoutY="15.0" text="Resonance" />
+                        <Label layoutX="511.0" layoutY="14.0" text="Depth" />
+                        <Label layoutX="14.0" layoutY="23.0" text="Osc 1" />
+                        <Label layoutX="318.0" layoutY="65.0" text="Resonance" />
+                        <Label layoutX="161.0" layoutY="65.0" text="Cutoff" />
+                        <Label layoutX="511.0" layoutY="65.0" text="Depth" />
+                        <Label layoutX="14.0" layoutY="74.0" text="Osc 2" />
+                        <Slider fx:id="filterDepthSlide2" layoutX="457.0" layoutY="83.0" max="1.0" value="0.5" />
+                        <Slider fx:id="filterResoSlide2" layoutX="281.0" layoutY="83.0" max="1.0" value="0.5" />
+                        <Slider fx:id="filterSlide2" layoutX="107.0" layoutY="83.0" max="4000.0" min="1.0" value="2000.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </top>
+   <right>
+      <Pane fx:id="conPane" prefHeight="292.0" prefWidth="626.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="13.0" layoutY="224.0" text="A" />
+            <Label layoutX="13.0" layoutY="64.0" text="C" />
+            <Label layoutX="62.0" layoutY="6.0" text="1" />
+            <Label layoutX="96.0" layoutY="6.0" text="2" />
+            <Label layoutX="131.0" layoutY="6.0" text="3" />
+            <Label layoutX="13.0" layoutY="96.0" text="D" />
+            <Label layoutX="14.0" layoutY="125.0" text="E" />
+            <Label layoutX="14.0" layoutY="158.0" text="F" />
+            <Label layoutX="13.0" layoutY="192.0" text="G" />
+            <Label layoutX="13.0" layoutY="256.0" text="B" />
+            <CheckBox fx:id="node1_C" layoutX="54.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_C" layoutX="89.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_C" layoutX="159.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_C" layoutX="124.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_C" layoutX="227.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_C" layoutX="296.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_C" layoutX="193.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_C" layoutX="261.0" layoutY="64.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_D" layoutX="296.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_D" layoutX="261.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_D" layoutX="89.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_D" layoutX="159.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_D" layoutX="227.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_D" layoutX="193.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_D" layoutX="124.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_D" layoutX="54.0" layoutY="96.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_E" layoutX="296.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_E" layoutX="261.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_E" layoutX="227.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_E" layoutX="159.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_E" layoutX="54.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_E" layoutX="124.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_E" layoutX="89.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_E" layoutX="193.0" layoutY="127.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_B" layoutX="296.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_F" layoutX="296.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_G" layoutX="296.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_F" layoutX="89.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_F" layoutX="159.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_G" layoutX="54.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_F" layoutX="227.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_B" layoutX="193.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_B" layoutX="124.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_G" layoutX="193.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_B" layoutX="89.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_F" layoutX="261.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_G" layoutX="261.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_G" layoutX="227.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_G" layoutX="159.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_G" layoutX="124.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_B" layoutX="261.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_B" layoutX="54.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_F" layoutX="193.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_G" layoutX="89.0" layoutY="195.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_B" layoutX="227.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_F" layoutX="124.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_F" layoutX="54.0" layoutY="163.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_B" layoutX="159.0" layoutY="255.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_A" layoutX="159.0" layoutY="224.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_A" layoutX="296.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_A" layoutX="193.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_A" layoutX="227.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_A" layoutX="261.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_A" layoutX="89.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_A" layoutX="54.0" layoutY="223.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_A" layoutX="124.0" layoutY="223.0" mnemonicParsing="false" />
+            <Button fx:id="playBtn" layoutX="411.0" layoutY="281.0" mnemonicParsing="false" onAction="#play" text="Play" />
+            <Label layoutX="166.0" layoutY="6.0" text="4" />
+            <Label layoutX="200.0" layoutY="6.0" text="5" />
+            <Label layoutX="234.0" layoutY="6.0" text="6" />
+            <Label layoutX="268.0" layoutY="6.0" text="7" />
+            <Label layoutX="303.0" layoutY="6.0" text="8" />
+            <Label layoutX="170.0" layoutY="336.0" text="4" />
+            <Label layoutX="16.0" layoutY="566.0" text="B" />
+            <CheckBox fx:id="node2_G1" layoutX="92.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_B1" layoutX="196.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_A1" layoutX="299.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_E1" layoutX="196.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_A1" layoutX="162.0" layoutY="534.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_B1" layoutX="162.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_D1" layoutX="127.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_E1" layoutX="57.0" layoutY="437.0" mnemonicParsing="false" />
+            <Label layoutX="17.0" layoutY="468.0" text="F" />
+            <Label layoutX="16.0" layoutY="374.0" text="C" />
+            <CheckBox fx:id="node6_A1" layoutX="230.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_D1" layoutX="92.0" layoutY="406.0" mnemonicParsing="false" />
+            <Label layoutX="100.0" layoutY="336.0" text="2" />
+            <CheckBox fx:id="node8_E1" layoutX="299.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_C1" layoutX="92.0" layoutY="374.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_F1" layoutX="57.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_G1" layoutX="162.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_G1" layoutX="230.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_F1" layoutX="230.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_G1" layoutX="299.0" layoutY="505.0" mnemonicParsing="false" />
+            <Label layoutX="16.0" layoutY="502.0" text="G" />
+            <CheckBox fx:id="node1_D1" layoutX="57.0" layoutY="406.0" mnemonicParsing="false" />
+            <Label layoutX="272.0" layoutY="336.0" text="7" />
+            <CheckBox fx:id="node3_G1" layoutX="127.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_D1" layoutX="196.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_E1" layoutX="92.0" layoutY="437.0" mnemonicParsing="false" />
+            <Label layoutX="238.0" layoutY="336.0" text="6" />
+            <Label layoutX="17.0" layoutY="435.0" text="E" />
+            <CheckBox fx:id="node6_B1" layoutX="230.0" layoutY="565.0" mnemonicParsing="false" />
+            <Label layoutX="66.0" layoutY="336.0" text="1" />
+            <CheckBox fx:id="node1_G1" layoutX="57.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_E1" layoutX="264.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_F1" layoutX="264.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_D1" layoutX="299.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_A1" layoutX="92.0" layoutY="533.0" mnemonicParsing="false" />
+            <Label layoutX="16.0" layoutY="534.0" text="A" />
+            <CheckBox fx:id="node1_A1" layoutX="57.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_E1" layoutX="127.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_D1" layoutX="264.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_C1" layoutX="264.0" layoutY="374.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_F1" layoutX="92.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_B1" layoutX="264.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_D1" layoutX="162.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node2_B1" layoutX="92.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_B1" layoutX="127.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_C1" layoutX="196.0" layoutY="374.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node3_C1" layoutX="127.0" layoutY="374.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_C1" layoutX="299.0" layoutY="374.0" mnemonicParsing="false" />
+            <Label layoutX="307.0" layoutY="336.0" text="8" />
+            <CheckBox fx:id="node3_F1" layoutX="127.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_C1" layoutX="162.0" layoutY="374.0" mnemonicParsing="false" />
+            <Label layoutX="135.0" layoutY="336.0" text="3" />
+            <CheckBox fx:id="node3_A1" layoutX="127.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_A1" layoutX="264.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_C1" layoutX="230.0" layoutY="374.0" mnemonicParsing="false" />
+            <Label layoutX="16.0" layoutY="406.0" text="D" />
+            <CheckBox fx:id="node5_A1" layoutX="196.0" layoutY="533.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_F1" layoutX="196.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_F1" layoutX="299.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_D1" layoutX="230.0" layoutY="406.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node8_B1" layoutX="299.0" layoutY="565.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node4_F1" layoutX="162.0" layoutY="473.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node7_G1" layoutX="264.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node5_G1" layoutX="196.0" layoutY="505.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_B1" layoutX="57.0" layoutY="565.0" mnemonicParsing="false" />
+            <Label layoutX="204.0" layoutY="336.0" text="5" />
+            <CheckBox fx:id="node4_E1" layoutX="162.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node6_E1" layoutX="230.0" layoutY="437.0" mnemonicParsing="false" />
+            <CheckBox fx:id="node1_C1" layoutX="57.0" layoutY="374.0" mnemonicParsing="false" />
+            <MenuButton fx:id="speedmenu" alignment="CENTER" contentDisplay="CENTER" layoutX="334.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSpeedtext" prefHeight="27.0" prefWidth="242.0" text="1/1" textAlignment="CENTER">
+              <items>
+                  <RadioMenuItem fx:id="nodespeed1" mnemonicParsing="false" onAction="#setSpeedtext" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem id="1/2" fx:id="nodespeed2" mnemonicParsing="false" onAction="#setSpeedtext" text="1/2" toggleGroup="$nodetoggle" />
+                  <RadioMenuItem fx:id="nodespeed3" mnemonicParsing="false" onAction="#setSpeedtext" text="1/4" toggleGroup="$nodetoggle" />
+                  <RadioMenuItem fx:id="nodespeed4" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle" />
+                  <RadioMenuItem fx:id="nodespeed5" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu1" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed11" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle1" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed21" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle1" />
+                  <RadioMenuItem fx:id="nodespeed31" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle1" />
+                  <RadioMenuItem fx:id="nodespeed41" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle1" />
+                  <RadioMenuItem fx:id="nodespeed51" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle1" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu2" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed12" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle2" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed22" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle2" />
+                  <RadioMenuItem fx:id="nodespeed32" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle2" />
+                  <RadioMenuItem fx:id="nodespeed42" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle2" />
+                  <RadioMenuItem fx:id="nodespeed52" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle2" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu3" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed13" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle3" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed23" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle3" />
+                  <RadioMenuItem fx:id="nodespeed33" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle3" />
+                  <RadioMenuItem fx:id="nodespeed43" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle3" />
+                  <RadioMenuItem fx:id="nodespeed53" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle3" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu4" alignment="CENTER" contentDisplay="CENTER" layoutX="191.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed14" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle4" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed24" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle4" />
+                  <RadioMenuItem fx:id="nodespeed34" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle4" />
+                  <RadioMenuItem fx:id="nodespeed44" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle4" />
+                  <RadioMenuItem fx:id="nodespeed54" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle4" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu5" alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed15" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle5" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed25" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle5" />
+                  <RadioMenuItem fx:id="nodespeed35" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle5" />
+                  <RadioMenuItem fx:id="nodespeed45" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle5" />
+                  <RadioMenuItem fx:id="nodespeed55" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle5" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu6" alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed16" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle6" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed26" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle6" />
+                  <RadioMenuItem fx:id="nodespeed36" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle6" />
+                  <RadioMenuItem fx:id="nodespeed46" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle6" />
+                  <RadioMenuItem fx:id="nodespeed56" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle6" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="speedmenu7" alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="19.0" textAlignment="CENTER">
+               <items>
+                  <RadioMenuItem fx:id="nodespeed17" mnemonicParsing="false" selected="true" text="1/1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nodetoggle7" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="nodespeed27" mnemonicParsing="false" text="1/2" toggleGroup="$nodetoggle7" />
+                  <RadioMenuItem fx:id="nodespeed37" mnemonicParsing="false" text="1/4" toggleGroup="$nodetoggle7" />
+                  <RadioMenuItem fx:id="nodespeed47" mnemonicParsing="false" text="1/8" toggleGroup="$nodetoggle7" />
+                  <RadioMenuItem fx:id="nodespeed57" mnemonicParsing="false" text="1/16" toggleGroup="$nodetoggle7" />
+               </items>
+            </MenuButton>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
